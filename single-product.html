@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - LendX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="css/vendor.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap"
+  rel="stylesheet">
+<body>
+  <!-- Header -->
+  <header class="sticky-top bg-white">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="LendX Logo" height="40">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="shop.html" class="nav-link">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="d-none d-lg-flex align-items-end">
+            <ul class="d-flex justify-content-end list-unstyled m-0">
+              <li>
+                <a href="profile.html" class="mx-3">
+                  <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                  aria-controls="offcanvasCart">
+                  <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
+                  <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2 cart-badge">
+                    0
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cart Offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasCartLabel">Your Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-circle pt-2 cart-badge">0</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <p>No items in cart.</p>
+          </li>
+        </ul>
+        <div class="d-flex justify-content-between mb-3">
+          <h5>Total</h5>
+          <h5 id="cart-total">₹0.00</h5>
+        </div>
+        <button id="send-requests-btn" class="btn btn-primary w-100" style="display: none;">
+          Send Requests
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Details Section -->
+  <section id="product-details" class="py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Product Gallery -->
+        <div class="col-md-6 mb-4">
+          <div class="swiper product-gallery-swiper">
+            <div class="swiper-wrapper">
+              <!-- Main product image will be loaded here -->
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper product-thumbnail-swiper mt-3">
+            <div class="swiper-wrapper">
+              <!-- Thumbnail images will be loaded here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="col-md-6">
+          <div class="product-info">
+            <h1 class="product-title mb-3"></h1>
+            <div class="product-rating mb-3">
+              <!-- Rating stars will be loaded here -->
+            </div>
+            <div class="product-price mb-3">
+              <h2 class="price"></h2>
+            </div>
+            <div class="product-description mb-4">
+              <!-- Description will be loaded here -->
+            </div>
+            <div class="product-meta mb-4">
+              <p class="mb-2"><strong>Category:</strong> <span class="category"></span></p>
+              <p class="mb-2"><strong>Availability:</strong> <span class="availability"></span></p>
+            </div>
+            <div class="product-actions">
+              <div class="quantity-selector mb-3">
+                <label for="quantity" class="form-label">Quantity:</label>
+                <div class="input-group" style="width: 150px;">
+                  <button class="btn btn-outline-secondary" type="button" id="decrease-qty">-</button>
+                  <input type="number" class="form-control text-center" id="quantity" value="1" min="1">
+                  <button class="btn btn-outline-secondary" type="button" id="increase-qty">+</button>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-lg w-100 mb-3" id="add-to-cart">
+                <iconify-icon icon="mdi:cart"></iconify-icon> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products Section -->
+  <section id="related-products" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Related Products</h2>
+      <div class="swiper related-products-swiper">
+        <div class="swiper-wrapper">
+          <!-- Related products will be loaded here -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // Product data (in a real application, this would come from a database or API)
+    const products = {
+      'steam-giftcards': {
+        id: 'steam-giftcards',
+        title: 'Steam Giftcards',
+        price: 400,
+        description: 'Get the perfect gift for any gamer with Steam Gift Cards. Choose from various denominations and let them pick their favorite games.',
+        category: 'gaming',
+        availability: 'In Stock & On Sale 20% off',
+        rating: 4.5,
+        images: [
+          'images/item1.jpg',
+          'images/item1.jpg',
+          'images/item1.jpg'
+        ],
+        relatedProducts: ['controller', 'nfs-rivals', 'lg-ultragear-monitor']
+      },
+      'controller': {
+        id: 'controller',
+        title: 'Controller',
+        price: 50,
+        description: 'High-quality gaming controller with ergonomic design, responsive buttons, and wireless connectivity. Perfect for extended gaming sessions.',
+        category: 'gaming',
+        availability: 'In Stock',
+        rating: 5,
+        images: [
+          'images/item2.jpg',
+          'images/item2.jpg',
+          'images/item2.jpg'
+        ],
+        relatedProducts: ['steam-giftcards', 'nfs-rivals', 'lg-ultragear-monitor']
+      },
+      'nfs-rivals': {
+        id: 'nfs-rivals',
+        title: 'NFS Rivals',
+        price: 100,
+        description: 'High-quality gaming controller with ergonomic design, responsive buttons, and wireless connectivity. Perfect for extended gaming sessions.',
+        category: 'gaming',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item3.jpg',
+          'images/item3.jpg',
+          'images/item3.jpg'
+        ],
+        relatedProducts: ['steam-giftcards', 'controller', 'lg-ultragear-monitor']
+      },
+      'lg-ultragear-monitor': {
+        id: 'lg-ultragear-monitor',
+        title: 'LG UltraGear Monitor',
+        price: 1000,
+        description: 'High-quality gaming controller with ergonomic design, responsive buttons, and wireless connectivity. Perfect for extended gaming sessions.',
+        category: 'gaming',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item4.jpg',
+          'images/item4.jpg',
+          'images/item4.jpg'
+        ],
+        relatedProducts: ['steam-giftcards', 'controller', 'nfs-rivals']
+      },
+      'iron-box': {
+        id: 'iron-box',
+        title: 'Iron Box',
+        price: 10.00,
+        description: 'Premium iron box with adjustable temperature settings, steam control, and non-stick soleplate. Features anti-drip technology and automatic shut-off for safety.',
+        category: 'electronics',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item5.jpg',
+          'images/item5.jpg',
+          'images/item5.jpg'
+        ],
+        relatedProducts: ['steam-giftcards', 'controller', 'nfs-rivals']
+      },
+      'netflix': {
+        id: 'netflix',
+        title: 'Netflix',
+        price: 50,
+        description: 'Stream unlimited movies, TV shows, and documentaries in HD and 4K quality. Access exclusive Netflix Originals, personalized recommendations, and multiple user profiles. Watch on any device, anytime.',
+        category: 'ott',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item9.jpg',
+          'images/item9.jpg',
+          'images/item9.jpg'
+        ],
+        relatedProducts: ['amazon-prime', 'jio-hotstar', 'aha']
+      },
+      'amazon-prime': {
+        id: 'amazon-prime',
+        title: 'Amazon Prime',
+        price: 30,
+        description: 'Stream unlimited movies, TV shows, and documentaries in HD and 4K quality. Access Amazons exclusive content, personalized recommendations, and multiple user profiles. Watch on any device, anytime.',
+        category: 'ott',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item10.jpg',
+          'images/item10.jpg',
+          'images/item10.jpg'
+        ],
+        relatedProducts: ['netflix', 'jio-hotstar', 'aha']
+      },
+      'jio-hotstar': {
+        id: 'jio-hotstar',
+        title: 'Jio Hotstar',
+        price: 25,
+        description: 'Stream unlimited movies, TV shows, and documentaries in HD and 4K quality. Access Jio Hotstars exclusive content, personalized recommendations. Watch on any device, anytime.',
+        category: 'ott',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item11.jpeg',
+          'images/item11.jpeg',
+          'images/item11.jpeg'
+        ],
+        relatedProducts: ['netflix', 'amazon-prime', 'aha']
+      },
+      'aha': {
+        id: 'aha',
+        title: 'Aha!',
+        price: 18,
+        description: 'Stream unlimited movies, TV shows, and documentaries in HD and 4K quality. Access Aha!s exclusive content, personalized recommendations. Watch on any device, anytime.',
+        category: 'ott',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item12.png',
+          'images/item12.png',
+          'images/item12.png'
+        ],
+        relatedProducts: ['netflix', 'amazon-prime', 'jio-hotstar']
+      },
+      'gaming-mouse': {
+        id: 'gaming-mouse',
+        title: 'Gaming Mouse',
+        price: 75,
+        description: 'High-quality gaming mouse with ergonomic design, responsive buttons, and wireless connectivity. Perfect for extended gaming sessions.',
+        category: 'gaming',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item13.jpg',
+          'images/item13.jpg',
+          'images/item13.jpg'
+        ],
+        relatedProducts: ['steam-giftcards', 'controller', 'nfs-rivals']
+      },
+      'gaming-keyboard': {
+        id: 'gaming-keyboard',
+        title: 'Gaming Keyboard',
+        price: 100,
+        description: 'High-quality gaming keyboard with ergonomic design, responsive buttons, and wireless connectivity. Perfect for extended gaming sessions.',
+        category: 'gaming',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item14.jpg',
+          'images/item14.jpg',
+          'images/item14.jpg'
+        ],
+        relatedProducts: ['steam-giftcards', 'controller', 'nfs-rivals']
+      },
+      'gaming-headset': {
+        id: 'gaming-headset',
+        title: 'Gaming Headset',
+        price: 120,
+        description: 'High-quality gaming headset with ergonomic design, responsive buttons, and wireless connectivity. Perfect for extended gaming sessions.',
+        category: 'gaming',
+        availability: 'In Stock',
+        rating: 4.5,
+        images: [
+          'images/item15.jpg',
+          'images/item15.jpg',
+          'images/item15.jpg'
+        ],
+        relatedProducts: ['steam-giftcards', 'controller', 'nfs-rivals']
+      },
+    };
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    // Function to load product data
+    function loadProductData() {
+      if (!productId || !products[productId]) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      const product = products[productId];
+      
+      // Update product title
+      document.querySelector('.product-title').textContent = product.title;
+      
+      // Update product price
+      document.querySelector('.price').textContent = `₹${product.price.toFixed(2)}`;
+      
+      // Update product description
+      document.querySelector('.product-description').textContent = product.description;
+      
+      // Update product category and availability
+      document.querySelector('.category').textContent = product.category;
+      document.querySelector('.availability').textContent = product.availability;
+      
+      // Update product rating
+      const ratingContainer = document.querySelector('.product-rating');
+      ratingContainer.innerHTML = '';
+      for (let i = 0; i < 5; i++) {
+        const star = document.createElement('iconify-icon');
+        star.setAttribute('icon', i < Math.floor(product.rating) ? 'clarity:star-solid' : 'clarity:star-outline');
+        star.classList.add('text-primary');
+        ratingContainer.appendChild(star);
+      }
+      
+      // Load product images
+      const mainSwiperWrapper = document.querySelector('.product-gallery-swiper .swiper-wrapper');
+      const thumbnailSwiperWrapper = document.querySelector('.product-thumbnail-swiper .swiper-wrapper');
+      
+      mainSwiperWrapper.innerHTML = '';
+      thumbnailSwiperWrapper.innerHTML = '';
+      
+      product.images.forEach((image, index) => {
+        // Main image
+        const mainSlide = document.createElement('div');
+        mainSlide.className = 'swiper-slide';
+        mainSlide.innerHTML = `<img src="${image}" class="img-fluid" alt="${product.title}">`;
+        mainSwiperWrapper.appendChild(mainSlide);
+        
+        // Thumbnail
+        const thumbSlide = document.createElement('div');
+        thumbSlide.className = 'swiper-slide';
+        thumbSlide.innerHTML = `<img src="${image}" class="img-fluid" alt="${product.title}">`;
+        thumbnailSwiperWrapper.appendChild(thumbSlide);
+      });
+      
+      // Initialize swipers
+      const thumbnailSwiper = new Swiper('.product-thumbnail-swiper', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true
+      });
+      
+      const mainSwiper = new Swiper('.product-gallery-swiper', {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        thumbs: {
+          swiper: thumbnailSwiper
+        }
+      });
+
+      // Load related products
+      const relatedProductsWrapper = document.querySelector('.related-products-swiper .swiper-wrapper');
+      
+      if (product.relatedProducts && product.relatedProducts.length > 0) {
+        relatedProductsWrapper.innerHTML = product.relatedProducts.map(relatedId => {
+          const relatedProduct = products[relatedId];
+          if (!relatedProduct) return '';
+          
+          return `
+            <div class="swiper-slide">
+              <div class="card h-100">
+                <a href="single-product.html?id=${relatedId}">
+                  <img src="${relatedProduct.images[0]}" class="card-img-top" alt="${relatedProduct.title}">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">${relatedProduct.title}</h5>
+                  <p class="card-text">₹${relatedProduct.price.toFixed(2)}</p>
+                  <a href="single-product.html?id=${relatedId}" class="btn btn-outline-primary">View Details</a>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+        // Initialize related products swiper
+        new Swiper('.related-products-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          }
+        });
+      } else {
+        // Hide the related products section if there are no related products
+        document.getElementById('related-products').style.display = 'none';
+      }
+    }
+
+    // Quantity selector functionality
+    document.getElementById('decrease-qty').addEventListener('click', () => {
+      const input = document.getElementById('quantity');
+      const value = parseInt(input.value);
+      if (value > 1) input.value = value - 1;
+    });
+
+    document.getElementById('increase-qty').addEventListener('click', () => {
+      const input = document.getElementById('quantity');
+      input.value = parseInt(input.value) + 1;
+    });
+
+    // Load product data when page loads
+    document.addEventListener('DOMContentLoaded', loadProductData);
+  </script>
+</body>
+</html> 

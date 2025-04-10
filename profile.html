@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>LendX - Profile</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="css/vendor.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap"
+  rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Same SVG definitions as index.html -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <!-- Copy all SVG definitions from index.html -->
+  </svg>
+
+  <div class="preloader-wrapper">
+    <div class="preloader">
+    </div>
+  </div>
+
+  <!-- Same header as index.html -->
+  <header>
+    <!-- Copy header content from index.html -->
+  </header>
+
+  
+  <div id="login-placeholder" class="text-center my-5" style="display: none;">
+    <h3>Please log in to view your profile</h3>
+    <a href="login.html" class="btn btn-primary mt-3">Login</a>
+  </div>
+
+<div id="profile-content">
+  <section id="profile" class="py-5">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-12">
+          <a href="index.html" class="btn btn-outline-primary">
+            <iconify-icon icon="mdi:arrow-left" class="me-2"></iconify-icon>
+            Back to Home
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <!-- User Details -->
+          <div class="card mb-4">
+            <div class="card-header">
+              <h4>User Details</h4>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <h6 class="text-muted mb-1">Name</h6>
+                <p class="mb-0" id="user-name"></p>
+              </div>
+              <div class="mb-3">
+                <h6 class="text-muted mb-1">Email</h6>
+                <p class="mb-0" id="user-email"></p>
+              </div>
+              <div class="mb-3">
+                <h6 class="text-muted mb-1">Phone Number</h6>
+                <p class="mb-0" id="user-phone"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <!-- Your Requests Section -->
+          <section class="py-5">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10">
+                  <div class="card shadow">
+                    <div class="card-body p-4">
+                      <h3 class="text-center mb-4">Your Requests</h3>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Item</th>
+                              <th>Details</th>
+                              <th>Status</th>
+                              <th>Date</th>
+                            </tr>
+                          </thead>
+                          <tbody id="requests-list">
+                            <!-- Requests will be loaded here -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Your Listed Items Section -->
+          <section class="py-5">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10">
+                  <div class="card shadow">
+                    <div class="card-body p-4">
+                      <h3 class="text-center mb-4">Your Listed Items</h3>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Item</th>
+                              <th>Details</th>
+                              <th>Status</th>
+                              <th>Price</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody id="listed-items">
+                            <!-- Listed items will be loaded here -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Lending Requests Section -->
+          <section class="py-5">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10">
+                  <div class="card shadow">
+                    <div class="card-body p-4">
+                      <h3 class="text-center mb-4">Lending Requests</h3>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Item</th>
+                              <th>Details</th>
+                              <th>Status</th>
+                              <th>Date</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody id="lending-requests">
+                            <!-- Lending requests will be loaded here -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div> <!-- End of profile-content -->
+
+  <!-- Same footer as index.html -->
+  <footer id="footer" class="my-5">
+    <!-- Copy footer content from index.html -->
+  </footer>
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Make sure the Profile class is initialized
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check if the profile object is available
+      if (!window.profile) {
+        console.error('Profile object not found. Make sure profile.js is loaded correctly.');
+        // Try to initialize it manually
+        window.profile = new Profile();
+      }
+      
+      // Check if the cart object is available
+      if (!window.cart) {
+        console.error('Cart object not found. Make sure cart.js is loaded correctly.');
+        // Try to initialize it manually
+        window.cart = new Cart();
+      }
+    });
+  </script>
+
+  <script>
+    // Check for valid session
+    const sessionToken = JSON.parse(localStorage.getItem('sessionToken'));
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (!sessionToken || !currentUser) {
+      console.log('No valid session found, redirecting to login');
+      window.location.href = 'login.html';
+    } else {
+      // Check if session is expired
+      const now = new Date();
+      const expiresAt = new Date(sessionToken.expiresAt);
+      
+      if (now > expiresAt) {
+        console.log('Session expired, redirecting to login');
+        // Clear session data
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('currentUser');
+        window.location.href = 'login.html';
+      } else {
+        // Session is valid, display user info
+        document.getElementById('user-name').textContent = currentUser.name || 'Not set';
+        document.getElementById('user-email').textContent = currentUser.email || 'Not set';
+        document.getElementById('user-phone').textContent = currentUser.phone || 'Not set';
+        
+        // Log current user information for debugging
+        console.log('Current user:', currentUser);
+        console.log('Session token:', sessionToken);
+      }
+    }
+  </script>
+
+  <script>
+    // Function to update the listed items table
+    function updateListedItems() {
+      const listedItems = JSON.parse(localStorage.getItem('items') || '[]');
+      const listedItemsTable = document.getElementById('listed-items');
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+      if (!currentUser) {
+        listedItemsTable.innerHTML = '<tr><td colspan="4" class="text-center">Please log in to view your items</td></tr>';
+        return;
+      }
+
+      listedItemsTable.innerHTML = listedItems
+        .filter(item => item.owner_id === currentUser.id)
+        .map(item => `
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img src="${item.image_url}" alt="${item.name}" class="img-thumbnail me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                <div>
+                  <h6 class="mb-0">${item.name}</h6>
+                  <small class="text-muted">${item.category}</small>
+                </div>
+              </div>
+            </td>
+            <td>${item.description}</td>
+            <td>
+              <span class="badge ${item.status === 'available' ? 'bg-success' : 'bg-warning'}">
+                ${item.status}
+              </span>
+            </td>
+            <td>₹${item.price_per_hour}/hr</td>
+          </tr>
+        `).join('') || '<tr><td colspan="4" class="text-center">No items listed yet</td></tr>';
+    }
+
+    // Function to update the requests list
+    function updateRequestsList() {
+      const requests = JSON.parse(localStorage.getItem('requests') || '[]');
+      const requestsList = document.getElementById('requests-list');
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const items = JSON.parse(localStorage.getItem('items') || '[]');
+
+      if (!currentUser) {
+        requestsList.innerHTML = '<tr><td colspan="4" class="text-center">Please log in to view your requests</td></tr>';
+        return;
+      }
+
+      const userRequests = requests.filter(request => request.user_id === currentUser.id);
+
+      requestsList.innerHTML = userRequests
+        .map(request => {
+          const item = items.find(i => i.id === request.item_id) || { name: 'Unknown Item', image_url: 'images/placeholder.png' };
+          return `
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="${item.image_url}" alt="${item.name}" class="img-thumbnail me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                  <div>
+                    <h6 class="mb-0">${item.name}</h6>
+                    <small class="text-muted">Quantity: ${request.quantity}</small>
+                  </div>
+                </div>
+              </td>
+              <td>₹${item.price_per_hour}/hr</td>
+              <td>
+                <span class="badge ${getStatusBadgeClass(request.status)}">
+                  ${request.status}
+                </span>
+              </td>
+              <td>${new Date(request.created_at).toLocaleString()}</td>
+            </tr>
+          `;
+        }).join('') || '<tr><td colspan="4" class="text-center">No requests yet</td></tr>';
+    }
+
+    // Function to update the lending requests table
+    function updateLendingRequests() {
+      const requests = JSON.parse(localStorage.getItem('requests') || '[]');
+      const lendingRequestsTable = document.getElementById('lending-requests');
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const items = JSON.parse(localStorage.getItem('items') || '[]');
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+      if (!currentUser) {
+        lendingRequestsTable.innerHTML = '<tr><td colspan="5" class="text-center">Please log in to view lending requests</td></tr>';
+        return;
+      }
+
+      // Filter items owned by the current user
+      const userItems = items.filter(item => item.owner_id === currentUser.id);
+      const userItemIds = userItems.map(item => item.id);
+      
+      // Filter requests for items owned by the current user
+      const lendingRequests = requests.filter(request => userItemIds.includes(request.item_id));
+
+      lendingRequestsTable.innerHTML = lendingRequests
+        .map(request => {
+          const item = items.find(i => i.id === request.item_id) || { name: 'Unknown Item', image_url: 'images/placeholder.png' };
+          const requester = users.find(u => u.id === request.user_id) || { name: 'Unknown User' };
+          
+          return `
+            <tr>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="${item.image_url}" alt="${item.name}" class="img-thumbnail me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                  <div>
+                    <h6 class="mb-0">${item.name}</h6>
+                    <small class="text-muted">Requested by: ${requester.name}</small>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div>Quantity: ${request.quantity}</div>
+              </td>
+              <td>
+                <span class="badge ${getStatusBadgeClass(request.status)}">
+                  ${request.status}
+                </span>
+              </td>
+              <td>${new Date(request.created_at).toLocaleString()}</td>
+              <td>
+                ${request.status === 'pending' ? `
+                  <div class="btn-group">
+                    <button class="btn btn-sm btn-success" onclick="profile.handleRequest('${request.id}', 'accepted')">Accept</button>
+                    <button class="btn btn-sm btn-danger" onclick="profile.handleRequest('${request.id}', 'rejected')">Reject</button>
+                  </div>
+                ` : ''}
+              </td>
+            </tr>
+          `;
+        }).join('') || '<tr><td colspan="5" class="text-center">No lending requests yet</td></tr>';
+    }
+
+    // Helper function to get badge class based on status
+    function getStatusBadgeClass(status) {
+      switch (status.toLowerCase()) {
+        case 'pending':
+          return 'bg-warning';
+        case 'accepted':
+          return 'bg-success';
+        case 'rejected':
+          return 'bg-danger';
+        case 'in process':
+          return 'bg-info';
+        default:
+          return 'bg-secondary';
+      }
+    }
+
+    // Function to update request status
+    function updateRequestStatus(requestId, newStatus) {
+      // Use the profile.handleRequest method instead
+      if (window.profile) {
+        window.profile.handleRequest(requestId, newStatus);
+      } else {
+        console.error('Profile object not found');
+      }
+    }
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', () => {
+      // The Profile class will handle loading the data
+      // We don't need to call these functions directly anymore
+      // updateRequestsList();
+      // updateLendingRequests();
+      // updateListedItems();
+      
+      // Make sure the profile object is available globally
+      if (!window.profile) {
+        console.error('Profile object not found. Make sure profile.js is loaded correctly.');
+      }
+    });
+  </script>
+</body>
+
+
+</html> 
